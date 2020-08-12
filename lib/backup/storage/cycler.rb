@@ -11,6 +11,8 @@ module Backup
       def cycle!
         Logger.info "Cycling Started..."
 
+        Logger.info "package:" + package.join(",")
+        Logger.info "yaml_load:" + yaml_load.join(",")
         packages = yaml_load.unshift(package)
         cycled_packages = []
         Logger.info "packages:" + packages.join(",")
