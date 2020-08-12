@@ -11,3 +11,5 @@ group :no_ci do
   gem "redcarpet"
   gem "yard"
 end
+
+gem 'qiniu', github: 'dongjssd/qiniu-ruby-sdk', branch: '6.9.0'
