@@ -11,7 +11,6 @@ module Backup
       def cycle!
         Logger.info "Cycling Started..."
 
-        Logger.info "package:" + package.join(",")
         Logger.info "yaml_load:" + yaml_load.join(",")
         packages = yaml_load.unshift(package)
         cycled_packages = []
@@ -54,6 +53,7 @@ module Backup
 
       # Returns stored Package objects, sorted by #time descending (oldest last).
       def yaml_load
+        Logger.info "yaml_file :" + yaml_file
         if File.exist?(yaml_file) && !File.zero?(yaml_file)
           YAML.load_file(yaml_file).sort_by!(&:time).reverse!
         else
