@@ -13,7 +13,8 @@ module Backup
 
         packages = yaml_load.unshift(package)
         cycled_packages = []
-
+        Logger.info "packages:" + packages.join(",")
+        Logger.info "keep:" + keep.to_s
         if keep.is_a?(Date) || keep.is_a?(Time)
           cycled_packages = packages.select do |p|
             p.time_as_object < keep.to_time
